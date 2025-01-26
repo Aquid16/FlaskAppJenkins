@@ -3,7 +3,7 @@ pipeline {
 stages {
 	stage('Clone Repository') {
 		steps {
-			git clone 'https://github.com/Aquid16/FlaskAppJenkins.git'
+			git 'https://github.com/Aquid16/FlaskAppJenkins.git'
 			}
 		}
 	}
