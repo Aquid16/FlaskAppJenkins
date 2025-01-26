@@ -1,9 +1,9 @@
 pipeline {
 	agent any
 stages {
-	stage('Clone Repository') {
+	stage('Test') {
 		steps {
-			git 'https://github.com/Aquid16/FlaskAppJenkins.git'
+			sh 'echo Hello World'
 			}
 		}
 	}
