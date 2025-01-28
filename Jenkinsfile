@@ -15,5 +15,14 @@ stages {
 			}
 		}
 	}
+	stage('Deploy to Production'){
+		steps{
+			withCredentials([sshUserPrivateKey(credentialsId: 'SSH_KEY', keyFileVariable: 'keyfile')]) {
+				sh '''ssh -i $keyfile -o StrictHostKeyChecking=no ubuntu@44.222.93.154
+    				docker pull 992382545251.dkr.ecr.us-east-1.amazonaws.com/sharon-jenkins:latest
+				docker run -d -p 80:5000 992382545251.dkr.ecr.us-east-1.amazonaws.com/sharon-jenkins:latest
+				'''
+		}
+	}
    }
 }	
