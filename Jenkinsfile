@@ -18,7 +18,7 @@ stages {
 	stage('Deploy to Production'){
 		steps{
 			withCredentials([sshUserPrivateKey(credentialsId: 'SSH_KEY', keyFileVariable: 'keyfile')]) {
-				sh '''ssh -o StrictHostKeyChecking=no -i $keyfile ubuntu@44.222.93.154
+				sh '''ssh -o StrictHostKeyChecking=no -i ${keyfile} ubuntu@44.222.93.154
     				aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 992382545251.dkr.ecr.us-east-1.amazonaws.com
     				docker pull 992382545251.dkr.ecr.us-east-1.amazonaws.com/sharon-jenkins:latest
 				docker run -d -p 80:5000 992382545251.dkr.ecr.us-east-1.amazonaws.com/sharon-jenkins:latest'''
