@@ -27,7 +27,6 @@ stages {
     docker images && \\
     docker run -d -p 80:5000 992382545251.dkr.ecr.us-east-1.amazonaws.com/sharon-jenkins:latest'
 					"""
-				}
 			}
 			}
 		}
