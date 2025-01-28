@@ -1,8 +1,5 @@
 pipeline {
 	agent any
-	environment{
-		AWS_REGION='us-east-1'
-	}
 stages {
 	stage('Docker build') {
 		steps {
